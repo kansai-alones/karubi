@@ -9,13 +9,19 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    $table->string('login_id')->unique();
+    $table->string('password');
+    $table->integr('years');
+    $table->integr('type_id');
+    $table->string('token')->unique();
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'login_id', 'password', 'type_id', 'years',
     ];
 
     /**
@@ -24,6 +30,6 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'token',
     ];
 }
