@@ -1,0 +1,91 @@
+.title {
+    margin-top: 80px;
+    font-family: HiraKakuPro-W6;
+    font-size: 30px;
+    text-align: center;
+    color: #000000;
+    font-weight: bold;
+}
+
+.id{
+    margin-top: 40px;
+    width: 400px;
+}
+
+.id-form{
+    height: 70px;
+}
+.id-form::placeholder{
+    font-family: HiraKakuPro-W6;
+}
+.pw{
+    margin-top: 40px;
+    width: 400px;
+}
+.pw-form{
+    height: 70px;
+}
+.pw-form::placeholder{
+    font-family: HiraKakuPro-W6;
+}
+.pw-con{
+    margin-top: 40px;
+    width: 400px;
+}
+.pw-con-form{
+    height: 70px;
+}
+.pw-con-form::placeholder{
+    font-family: HiraKakuPro-W6;
+}
+
+.form-control{
+    border-top-color: #ffffff;
+    border-right-color: #ffffff;
+    border-bottom-color: #ffffff;
+    border-left-color: #ffffff;
+}
+
+.lang{
+    margin-top: 40px;
+    width: 400px;
+    height: 70px;
+}
+.lang-select{
+    font-family: HiraKakuPro-W6;
+}
+.btn{
+    font-weight: bold;
+}
+.bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+    width: 400px;
+}
+
+.form-group-lg .form-control {
+    height: 70px;
+}
+
+.btn-default {
+    background-color: #efefef;
+}
+
+select::placeholder{
+    font-weight: bold;
+}
+
+.year-select {
+    /*visibility: hidden;*/
+    display: none;
+}
+
+.send{
+    margin-top: 40px;
+
+}
+.send-botton{
+    width: 300px;
+    height: 70px;
+    background-image: linear-gradient(to bottom, #72d5f9, #3eaaef);
+    border-radius: 100px;
+
+}
