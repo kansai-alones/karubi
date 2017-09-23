@@ -1,0 +1,33 @@
+version: '2'
+
+services:
+    nginx:
+        build: dockerfiles/nginx/.
+        ports:
+            - 80:80
+        links:
+            - php
+        volumes:
+            - ./log:/var/log/nginx
+            - ./:/app/
+    db:
+        build: dockerfiles/db/
+        environment:
+            MYSQL_ROOT_PASSWORD: $DB_PASSWORD
+            MYSQL_DATABASE: $DB_DATABASE
+            MYSQL_USER:     $DB_USERNAME
+            MYSQL_PASSWORD: $DB_PASSWORD
+        expose:
+            - 3306
+        volumes:
+            - ./dockerfiles/db/var:/var/lib/mysql
+    php:
+        build:
+            context: dockerfiles/php/.
+        env_file: .env
+        expose:
+            - 9000
+        volumes:
+            - .:/var/www/app
+        links:
+            - db
