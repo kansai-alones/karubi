@@ -24,7 +24,7 @@ class EnqueteController extends Controller
                 'user_id'   => $user->id,
                 'token'     => str_random(40)
             ]);
-            $enquete = Enquete::inRandomOrder()->with('choices')->first();
+            $enquete = Enquete::where('level', 3)->inRandomOrder()->with('choices')->first();
             Sl::create([
                 'sequence_id' => $sequence->id,
                 'enquete_id'  => $enquete->id,
@@ -33,9 +33,26 @@ class EnqueteController extends Controller
         } else {
             $sequence = Sequence::where('user_id', $user->id)->where('token', $st)->first();
             $sls = $sequence->sls;
+            $prev_level = $sls->reverse()->first()->enquete->level;
+            $prev_ans  = $sls->reverse()->first()->choice_id;
+
+            // easy 1 ---- 3 hard
+            if ($prev_ans % 3 === 1) {
+                $level = $prev_level + 1;
+            } elseif ($prev_ans % 3 === 2) {
+                $level = $prev_level;
+            } else {
+                $level = $prev_level - 1;
+            }
+            $level = min(max(1, $level), 5); // 1 ~ 5 に落とし込む
+
             $count = $sls->count();
             $ids = $sequence->sls->pluck('choice_id');
-            $enquete = Enquete::whereNotIn('id', $ids)->inRandomOrder()->with('choices')->first();
+            $enquete = Enquete::where('level', $level)
+                ->whereNotIn('id', $ids)
+                ->inRandomOrder()
+                ->with('choices')
+                ->first();
             Sl::create([
                 'sequence_id' => $sequence->id,
                 'enquete_id'  => $enquete->id,

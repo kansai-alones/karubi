@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Enquete extends Model
 {
     protected $fillable = [
-        'title',
+        'title', 'level'
     ];
 
     public function choices()
