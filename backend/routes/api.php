@@ -14,3 +14,6 @@ use Illuminate\Http\Request;
 */
 
 Route::post('auth/register', 'AuthController@register');
+
+Route::get('enquete', 'EnqueteController@getEnquete');
+Route::post('enquete', 'EnqueteController@answer');
