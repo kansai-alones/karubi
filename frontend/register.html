@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-select.css">
+    <script src="js/bootstrap-select.js"></script>
+    <script src="js/register-select.js"></script>
+    <link rel="stylesheet" href="css/register.css">
+
+    <title>ユーザ情報登録</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div>
+            <p class="title">ユーザ情報入力</p>
+        </div>
+        <div class="form-group id center-block">
+            <input type="text" name="" class="form-control id-form" style="background-color: #efefef;"
+                   placeholder="新規ユーザーID入力してください">
+        </div>
+        <div class="form-group pw center-block">
+            <input type="text" name="" class="form-control pw-form" style="background-color: #efefef;"
+                   placeholder="パスワード入力してください">
+        </div>
+        <div class="form-group pw-con center-block">
+            <input type="text" name="" class="form-control pw-con-form" style="background-color: #efefef;"
+                   placeholder="確認用パスワード入力してください">
+        </div>
+
+        <div class="form-group lang center-block form-group-lg" >
+            <select class="form-control selectpicker lang-select" title="言語を選択してください">
+                <option value="php">PHP</option>
+            </select>
+        </div>
+
+        <div class="form-group lang center-block form-group-lg">
+            <select id="changeSelect" class="form-control selectpicker lang-select" title="職業を選択してください">
+                <option value="school">学生</option>
+                <option value="company">社会人</option>
+            </select>
+        </div>
+
+        <div id="company" class="form-group lang center-block form-group-lg year-select">
+            <select class="form-control selectpicker lang-select" title="就業年数">
+                <option value="school-1">新卒１年目</option>
+                <option value="school-2">新卒２年目</option>
+            </select>
+        </div>
+
+        <div id="school" class="form-group lang center-block form-group-lg year-select">
+            <select class="form-control selectpicker lang-select" title="学年">
+                <option value="school-1">学部１年</option>
+                <option value="school-2">学部２年</option>
+                <option value="school-3">学部３年</option>
+                <option value="school-4">学部４年</option>
+                <option value="school-5">院１年</option>
+                <option value="school-6">院２年</option>
+            </select>
+        </div>
+
+        <div class="form-group send ">
+            <input type="submit" value="submit" class="btn btn-primary send-botton center-block">
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
