@@ -16,6 +16,7 @@ class Enquete extends Migration
         Schema::create('enquetes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
+            $table->integer('level');
             $table->timestamps();
         });
     }

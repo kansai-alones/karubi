@@ -16,7 +16,10 @@ class EnqueteSeeder extends Seeder
     {
         $items = Yaml::parse(file_get_contents(__DIR__ . '/enquete.yml'));
         foreach ($items as $item) {
-            $enquete = Enquete::create(['title' => $item['title']]);
+            $enquete = Enquete::create([
+                'title' => $item['title'],
+                'level' => $item['level'],
+            ]);
             foreach ($item['choices'] as $value) {
                 Choice::create([
                     'enquete_id' => $enquete->id,

@@ -14,4 +14,10 @@ class Sl extends Model
     {
         return $this->belongsTo('App\Sequence');
     }
+
+    public function enquete()
+    {
+        return $this->belongsTo('App\Enquete');
+
+    }
 }

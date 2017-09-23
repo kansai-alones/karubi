@@ -1,33 +1,152 @@
 -
-    title: Aを実装できる
+    title: 1Aを実装できる
+    level: 1
     choices:
         - できる
         - 調べながらできる
         - できない
 
 -
-    title: Bを実装できる
+    title: 1Bを実装できる
+    level: 1
+    choices:
+        - できる
+        - 調べながらできる
+        - できない
+
+
+-
+    title: 1Cを実装できる
+    level: 1
     choices:
         - できる
         - 調べながらできる
         - できない
 
 -
-    title: Cを実装できる
+    title: 2Aを実装できる
+    level: 2
     choices:
         - できる
         - 調べながらできる
         - できない
 
 -
-    title: Dを実装できる
+    title: 2Bを実装できる
+    level: 2
     choices:
         - できる
         - 調べながらできる
         - できない
 
 -
-    title: Eを実装できる
+    title: 2C実装できる
+    level: 2
+    choices:
+        - できる
+        - 調べながらできる
+        - できない
+
+-
+    title: 2D実装できる
+    level: 2
+    choices:
+        - できる
+        - 調べながらできる
+        - できない
+
+-
+    title: 3Aを実装できる
+    level: 3
+    choices:
+        - できる
+        - 調べながらできる
+        - できない
+
+-
+    title: 3Bを実装できる
+    level: 3
+    choices:
+        - できる
+        - 調べながらできる
+        - できない
+
+-
+    title: 3C実装できる
+    level: 3
+    choices:
+        - できる
+        - 調べながらできる
+        - できない
+
+-
+    title: 3D実装できる
+    level: 3
+    choices:
+        - できる
+        - 調べながらできる
+        - できない
+
+-
+    title: 3E実装できる
+    level: 3
+    choices:
+        - できる
+        - 調べながらできる
+        - できない
+
+-
+    title: 4Aを実装できる
+    level: 4
+    choices:
+        - できる
+        - 調べながらできる
+        - できない
+
+-
+    title: 4Bを実装できる
+    level: 4
+    choices:
+        - できる
+        - 調べながらできる
+        - できない
+
+-
+    title: 4C実装できる
+    level: 4
+    choices:
+        - できる
+        - 調べながらできる
+        - できない
+
+-
+    title: 4D実装できる
+    level: 4
+    choices:
+        - できる
+        - 調べながらできる
+        - できない
+
+-
+    title: 5Aを実装できる
+    level: 5
+    choices:
+        - できる
+        - 調べながらできる
+        - できない
+
+-
+    title: 5Bを実装できる
+    level: 5
+    choices:
+        - できる
+        - 調べながらできる
+        - できない
+
+
+-
+    title: 5Cを実装できる
+    level: 5
     choices:
         - できる
         - 調べながらできる
