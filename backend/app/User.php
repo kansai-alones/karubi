@@ -9,12 +9,6 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    $table->string('login_id')->unique();
-    $table->string('password');
-    $table->integr('years');
-    $table->integr('type_id');
-    $table->string('token')->unique();
-
     /**
      * The attributes that are mass assignable.
      *
