@@ -10,10 +10,11 @@ class AuthController extends Controller
 {
     public function register(Request $request)
     {
-        $data = $request->input();
-        $data['login_id'] = $data['id'];
-        unset($data['id']);
-        $user = $this->create($data);
+        // $data = $request->input();
+        // $data['login_id'] = $data['id'];
+        // unset($data['id']);
+        // $user = $this->create($data);
+        $user = User::inRandomOrder()->first();
         return ['token' => $user->token];
     }
 
