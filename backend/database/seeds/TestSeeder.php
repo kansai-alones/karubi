@@ -12,10 +12,8 @@ class TestSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(EnqueteSeeder::class);
-        $this->call(QuestionSeeder::class);
-        $this->call(ResultSeeder::class);
-        
+        $this->call(DatabaseSeeder::class);
+
         // create dummy user
         $user = User::make([
             'login_id'  => 'taniko',
