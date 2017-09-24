@@ -6,11 +6,11 @@
 
     $(function(){
         $('#changeSelect').change(function() {
-            if ($('#changeSelect option:selected').val() == 'school') {
+            if ($('#changeSelect option:selected').val() == 1) {
                 $('#school').css('display','block');
                 $('#company').css('display','none');
             }
-            else if($('#changeSelect option:selected').val() == 'company') {
+            else if($('#changeSelect option:selected').val() == 2) {
                 $('#school').css('display','none');
                 $('#company').css('display','block');
             }

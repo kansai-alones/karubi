@@ -16,60 +16,106 @@
 <body>
 <div class="container">
     <div class="row">
-        <div>
-            <p class="title">ユーザ情報入力</p>
-        </div>
-        <div class="form-group id center-block">
-            <input type="text" name="" class="form-control id-form" style="background-color: #efefef;"
-                   placeholder="新規ユーザーID入力してください">
-        </div>
-        <div class="form-group pw center-block">
-            <input type="text" name="" class="form-control pw-form" style="background-color: #efefef;"
-                   placeholder="パスワード入力してください">
-        </div>
-        <div class="form-group pw-con center-block">
-            <input type="text" name="" class="form-control pw-con-form" style="background-color: #efefef;"
-                   placeholder="確認用パスワード入力してください">
-        </div>
+        <form method="post" id="the-form" action="http://localhost/api/auth/register">
+            <div>
+                <p class="title">ユーザ情報入力</p>
+            </div>
+            <div class="form-group id center-block">
+                <input type="text" name="id" class="form-control id-form" style="background-color: #efefef;"
+                       placeholder="新規ユーザーID入力してください">
+            </div>
+            <div class="form-group pw center-block">
+                <input type="text" name="password" class="form-control pw-form" style="background-color: #efefef;"
+                       placeholder="パスワード入力してください">
+            </div>
+            <div class="form-group pw-con center-block">
+                <input type="text" class="form-control pw-con-form" style="background-color: #efefef;"
+                       placeholder="確認用パスワード入力してください">
+            </div>
 
-        <div class="form-group lang center-block form-group-lg" >
-            <select class="form-control selectpicker lang-select" title="言語を選択してください">
-                <option value="php">PHP</option>
-            </select>
-        </div>
+            <div class="form-group lang center-block form-group-lg">
+                <select name="language" class="form-control selectpicker lang-select" title="言語を選択してください">
+                    <option value="php">PHP</option>
+                </select>
+            </div>
 
-        <div class="form-group lang center-block form-group-lg">
-            <select id="changeSelect" class="form-control selectpicker lang-select" title="職業を選択してください">
-                <option value="school">学生</option>
-                <option value="company">社会人</option>
-            </select>
-        </div>
+            <div class="form-group lang center-block form-group-lg">
+                <select id="changeSelect" name="type_id" class="form-control selectpicker lang-select" title="職業を選択してください">
+                    <option value="1">学生</option>
+                    <option value="2">社会人</option>
+                </select>
+            </div>
 
-        <div id="company" class="form-group lang center-block form-group-lg year-select">
-            <select class="form-control selectpicker lang-select" title="就業年数">
-                <option value="school-1">新卒１年目</option>
-                <option value="school-2">新卒２年目</option>
-            </select>
-        </div>
+            <div id="company" class="form-group lang center-block form-group-lg year-select">
+                <select name="years" class="form-control selectpicker lang-select" title="就業年数">
+                    <option value="1">新卒１年目</option>
+                    <option value="2">新卒２年目</option>
+                </select>
+            </div>
 
-        <div id="school" class="form-group lang center-block form-group-lg year-select">
-            <select class="form-control selectpicker lang-select" title="学年">
-                <option value="school-1">学部１年</option>
-                <option value="school-2">学部２年</option>
-                <option value="school-3">学部３年</option>
-                <option value="school-4">学部４年</option>
-                <option value="school-5">院１年</option>
-                <option value="school-6">院２年</option>
-            </select>
-        </div>
+            <div id="school" class="form-group lang center-block form-group-lg year-select">
+                <select name="years" class="form-control selectpicker lang-select" title="学年">
+                    <option value="1">学部１年</option>
+                    <option value="2">学部２年</option>
+                    <option value="3">学部３年</option>
+                    <option value="4">学部４年</option>
+                    <option value="5">院１年</option>
+                    <option value="6">院２年</option>
+                </select>
+            </div>
 
-        <div class="form-group send ">
-            <input type="submit" value="submit" class="btn btn-primary send-botton center-block">
-
-        </div>
+            <div class="form-group send ">
+                <input type="submit" value="submit" class="btn btn-primary send-botton center-block">
+            </div>
+        </form>
     </div>
 </div>
-
-
 </body>
+
+<script type="application/javascript">
+    $('#the-form').submit(function(event) {
+        // HTMLでの送信をキャンセル
+        event.preventDefault();
+
+        // 操作対象のフォーム要素を取得
+        var $form = $(this);
+
+        // 送信ボタンを取得
+        var $button = $form.find('button');
+
+        // 送信
+        $.ajax({
+            url: $form.attr('action'),
+            type: $form.attr('method'),
+            data: $form.serialize(),
+            timeout: 10000,  // 単位はミリ秒
+
+            // 送信前
+            beforeSend: function(xhr, settings) {
+                // ボタンを無効化し、二重送信を防止
+                $button.attr('disabled', true);
+            },
+            // 応答後
+            complete: function(xhr, textStatus) {
+                // ボタンを有効化し、再送信を許可
+                $button.attr('disabled', false);
+            },
+
+            // 通信成功時の処理
+            success: function(result, textStatus, xhr) {
+                // 入力値を初期化
+                $form[0].reset();
+                console.log(result);
+                document.cookie = 'token=' + result['token'];
+                alert('OK');
+                location.href='enquete.html';
+            },
+
+            // 通信失敗時の処理
+            error: function(xhr, textStatus, error) {
+                alert('NG...');
+            }
+        });
+    });
+</script>
 </html>
