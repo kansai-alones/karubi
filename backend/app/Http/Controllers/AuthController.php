@@ -14,7 +14,7 @@ class AuthController extends Controller
         // $data['login_id'] = $data['id'];
         // unset($data['id']);
         // $user = $this->create($data);
-        $user = User::inRandomOrder()->first();
+        $user = User::demo();
         return ['token' => $user->token];
     }
 

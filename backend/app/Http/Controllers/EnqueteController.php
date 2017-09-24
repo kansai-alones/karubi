@@ -13,7 +13,8 @@ class EnqueteController extends Controller
     public function getEnquete(Request $request)
     {
         $count = 0;
-        $user = User::where('token', $request->input('token'))->first();
+        // $user = User::where('token', $request->input('token'))->first();
+        $user = User::demo();
         $st = $request->input('sequence_token');
         if (!isset($st)
             || !Sequence::where('user_id', $user->id)
@@ -68,7 +69,8 @@ class EnqueteController extends Controller
 
     public function answer(Request $request)
     {
-        $user       = User::where('token', $request->input('token'))->first();
+        // $user       = User::where('token', $request->input('token'))->first();
+        $user = User::demo();
         $sequence   = Sequence::where('token', $request->input('sequence_token'))->first();
         $sls = $sequence->sls;
         $sl = $sls->reverse()->first();

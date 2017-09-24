@@ -16,11 +16,21 @@ class QuestionController extends Controller
      */
     public function create(Request $request) : Result
     {
-        $user = User::where('token', $request->input('token'))->first();
+        $user = User::demo();    
+        // $user = User::where('token', $request->input('token'))->first();
         $question = Question::find($request->input('question_id'));
         $data = $request->input();
         $data['user_id'] = $user->id;
         $data['level'] = $question->level;
+
+        $ifile    = storage_path('ToDo.php');
+        $testfile = base_path('tests/Unit/ToDo.php');
+        $filename = storage_path('storage/result.json');
+        chmod($ifile, 777);
+        copy($ifile, $testfile);
+        exec('cd /var/www/app && ./vendor/bin/phpunit');
+        $data = json_decode(file_get_contents($filename));
+
 
         // TODO コードテスト
         $data['check_list'] = [

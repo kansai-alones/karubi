@@ -26,4 +26,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'token',
     ];
+
+    protected function demo()
+    {
+        return User::find(1);
+    }
 }
