@@ -25,5 +25,5 @@ Route::group(['prefix' => 'result'], function () {
 });
 
 Route::group(['prefix' => 'question'], function () {
-    Route::post('result', 'ResultController@create');
+    Route::post('result', 'QuestionController@create');
 });
