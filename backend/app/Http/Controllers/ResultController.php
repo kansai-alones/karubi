@@ -52,7 +52,38 @@ class ResultController extends Controller
         return $result;
     }
 
-    public function create(Request $request)
+    /**
+     * ユーザの特性と同じ人達がどのレベルに取り組んでいるのかを取得する
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
+    public function getList(Request $request)
+    {
+        $user = User::where('token', $request->input('token'))->first();
+        $result = DB::table('results')
+            ->select(DB::raw('level, count(*) as count'))
+            ->join('users', 'results.user_id', 'users.id')
+            ->where('users.type_id', $user->type_id)
+            ->where('users.years', $user->years)
+            ->groupBy('level')
+            ->get();
+        $temp = $result->toArray();
+        $result = [];
+        for ($i = 0; $i < 5; $i++) {
+            $result[$i] = ['level' => $i+1, 'count' => 0];
+        }
+        foreach ($temp as $key => $value) {
+            $result[(int)($value->level) - 1] = $value;
+        }
+        return $result;
+    }
+
+    /**
+     * コードの評価を行い, データベースに保存する. 結果を返す.
+     * @param  Request $request
+     * @return Result コードの評価
+     */
+    public function create(Request $request) : Result
     {
         $user = User::where('token', $request->input('token'))->first();
         $question = Question::find($request->input('question_id'));
@@ -73,6 +104,7 @@ class ResultController extends Controller
         return Result::calculate($data);;
     }
 
+    
     public function execute(Request $request)
     {
         $question = Question::find($request->input('question_id'));

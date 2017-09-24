@@ -22,6 +22,7 @@ class ResultSeeder extends Seeder
             $user->save();
             \DB::table('results')->insert([
                 'user_id'   => $user->id,
+                'question_id' => rand(1, 5),
                 'score'     => rand(0, 100),
                 'level'     => rand(1, 5)
             ]);
