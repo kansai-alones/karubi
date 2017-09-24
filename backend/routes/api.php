@@ -21,6 +21,7 @@ Route::post('enquete', 'EnqueteController@answer');
 Route::group(['prefix' => 'result'], function () {
     Route::get('/', 'ResultController@getScore');
     Route::get('graph', 'ResultController@getGraph');
+    Route::get('list', 'ResultController@getList');
 });
 
 Route::group(['prefix' => 'question'], function () {
