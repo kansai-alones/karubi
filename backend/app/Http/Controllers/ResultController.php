@@ -38,6 +38,14 @@ class ResultController extends Controller
             ->where('users.years', $user->years)
             ->groupBy('score')
             ->get();
+        $temp = $result->toArray();
+        $result = [];
+        for ($i = 0; $i <= 100; $i++) {
+            $result[$i] = ['score' => $i, 'count' => 0];
+        }
+        foreach ($temp as $key => $value) {
+            $result[(int)($value->score)] = $value;
+        }
         return $result;
     }
 }
