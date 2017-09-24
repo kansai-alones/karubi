@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Sequence extends Migration
+class Todo extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class Sequence extends Migration
      */
     public function up()
     {
-        Schema::create('sequences', function (Blueprint $table) {
+        Schema::create('todo', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->string('token');
+            $table->string('text');
+            $table->boolean('status');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class Sequence extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sequences');
+        Schema::dropIfExists('todo');
     }
 }
