@@ -1,0 +1,25 @@
+.title {
+    margin-top: 345px;
+    font-family: HiraKakuPro-W6;
+    font-size: 30px;
+    text-align: center;
+    color: #000000;
+    font-weight: bold;
+}
+
+.sub{
+    margin-top: 30px;
+    width: 600px;
+    font-size: 20px;
+}
+
+.send{
+    margin-top: 60px;
+}
+.send-botton{
+    width: 300px;
+    height: 70px;
+    background-image: linear-gradient(to bottom, #72d5f9, #3eaaef);
+    border-radius: 100px;
+
+}
