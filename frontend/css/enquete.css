@@ -1,0 +1,39 @@
+.title {
+    margin-top: 345px;
+    font-family: HiraKakuPro-W6;
+    font-size: 30px;
+    text-align: center;
+    color: #000000;
+    font-weight: bold;
+}
+
+.btn1{
+    margin-top: 80px;
+}
+.botton1{
+    width: 300px;
+    height: 70px;
+    background-image: linear-gradient(to bottom, #72d5f9, #3eaaef);
+    border-radius: 100px;
+    font-size: 18px;
+}
+.btn2{
+    margin-top: 40px;
+}
+.botton2{
+    width: 300px;
+    height: 70px;
+    background-image: linear-gradient(to bottom, #72d5f9, #3eaaef);
+    border-radius: 100px;
+    font-size: 18px;
+}
+.btn3{
+    margin-top: 40px;
+}
+.botton3{
+    width: 300px;
+    height: 70px;
+    background-image: linear-gradient(to bottom, #72d5f9, #3eaaef);
+    border-radius: 100px;
+    font-size: 18px;
+}
