@@ -21,17 +21,18 @@ class QuestionController extends Controller
         $data = $request->input();
         $data['user_id'] = $user->id;
         $data['level'] = $question->level;
+        $data['check_list'] = file_get_contents("/var/www/app/result.json");
 
         // TODO コードテスト
-        $data['check_list'] = [
-            ['flag' => true],
-            ['flag' => false],
-            ['flag' => false],
-            ['flag' => true],
-            ['flag' => true],
-            ['flag' => false],
-            ['flag' => true],
-        ];
+        // $data['check_list'] = [
+        //     ['flag' => true],
+        //     ['flag' => false],
+        //     ['flag' => false],
+        //     ['flag' => true],
+        //     ['flag' => true],
+        //     ['flag' => false],
+        //     ['flag' => true],
+        // ];
         return Result::calculate($data);;
     }
 }
