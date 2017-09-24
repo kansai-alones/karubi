@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\User;
+use App\Question;
+use App\Check;
+use App\Result;
 
 class ResultController extends Controller
 {
@@ -45,6 +48,38 @@ class ResultController extends Controller
         }
         foreach ($temp as $key => $value) {
             $result[(int)($value->score)] = $value;
+        }
+        return $result;
+    }
+
+    public function create(Request $request)
+    {
+        $user = User::where('token', $request->input('token'))->first();
+        $question = Question::find($request->input('question_id'));
+        $data = $request->input();
+        $data['user_id'] = $user->id;
+        $data['level'] = $question->level;
+
+        // TODO コードテスト
+        $data['check_list'] = [
+            ['flag' => true],
+            ['flag' => false],
+            ['flag' => false],
+            ['flag' => true],
+            ['flag' => true],
+            ['flag' => false],
+            ['flag' => true],
+        ];
+        return Result::calculate($data);;
+    }
+
+    public function execute(Request $request)
+    {
+        $question = Question::find($request->input('question_id'));
+        $count    = $question->checks->count();
+        $result   = [];
+        for ($i = 0; $i < $count; $i++) {
+            $result[$i] = true;
         }
         return $result;
     }

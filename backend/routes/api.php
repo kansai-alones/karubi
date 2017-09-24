@@ -22,3 +22,7 @@ Route::group(['prefix' => 'result'], function () {
     Route::get('/', 'ResultController@getScore');
     Route::get('graph', 'ResultController@getGraph');
 });
+
+Route::group(['prefix' => 'question'], function () {
+    Route::post('result', 'ResultController@create');
+});
