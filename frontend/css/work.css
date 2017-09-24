@@ -1,0 +1,165 @@
+.title {
+    margin-top: 80px;
+    font-family: HiraKakuPro-W6;
+    font-size: 30px;
+    text-align: center;
+    color: #000000;
+    font-weight: bold;
+}
+
+
+
+.sub{
+    margin-top: 30px;
+    width: 600px;
+    font-size: 20px;
+}
+
+.question{
+    margin-top: 61px;
+    text-align: center;
+}
+
+
+.levelup{
+    margin-top: 40px;
+}
+.level-up-button{
+    width: 300px;
+    height: 70px;
+    font-size: 16px;
+    border-radius: 100px;
+    border: solid 1px #ff3e3e;
+    background-color: #FFFFFF;
+    color: #ff3e3e;
+
+}
+.level-up-button:hover{
+    background-color: #ff3e3e;
+    color: #FFFFFF;
+}
+.leveldown{
+    margin-top: 40px;
+}
+.level-down-button{
+    width: 300px;
+    height: 70px;
+    font-size: 16px;
+    border-radius: 100px;
+    background-color: #FFFFFF;
+    border: solid 1px #ff3e3e;
+    color: #ff3e3e;
+}
+.level-down-button:hover{
+    background-color: #ff3e3e;
+    color: #FFFFFF;
+}
+
+.bold-hr hr {
+    border-color: #3c3c3c;
+}
+
+.ans{
+    font-weight: bold;
+    font-size: 24px;
+    color: #000000;
+}
+.ans-detail{
+    width: 480px;
+    height: 68px;
+    font-family: "HiraKakuPro-W3";
+    font-size: 16px;
+    line-height: 1.62;
+    text-align: center;
+    color: #000000;
+}
+.midstream{
+    font-weight: bold;
+    font-size: 20px;
+    color: #000000;
+}
+.midstream-detail{
+    margin-top: 20px;
+    font-size: 16px;
+}
+.suc-btn{
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #3ba6c1;
+}
+.suc{
+    width: 95px;
+    height: 18px;
+    font-size: 18px;
+    color: #ffffff;
+    padding-top: 8px;
+}
+.fal-btn{
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #df3737;
+}
+.fal{
+    width: 95px;
+    height: 18px;
+    font-size: 18px;
+    color: #ffffff;
+    padding-top: 8px;
+}
+.hr-len{
+    width: 500px;
+    height: 2px;
+}
+
+
+.push-file{
+    margin-top: 45px;
+}
+.push-file-button{
+    width: 300px;
+    height: 70px;
+    font-size: 16px;
+    border-radius: 100px;
+    border: solid 1px #3eaaef;
+    background-color: #FFFFFF;
+    color: #3eaaef;
+
+}
+.push-file-button:hover{
+    background-color: #3eaaef;
+    color: #FFFFFF;
+}
+.test{
+    margin-top: 45px;
+}
+.test-button{
+    width: 300px;
+    height: 70px;
+    font-size: 16px;
+    border-radius: 100px;
+    background-color: #FFFFFF;
+    border: solid 1px #3eaaef;
+    color: #3eaaef;
+}
+.test-button:hover{
+    background-color: #3eaaef;
+    color: #FFFFFF;
+}
+.complete{
+    margin-top: 25px;
+}
+.complete-button{
+    width: 300px;
+    height: 70px;
+    font-size: 30px;
+    border-radius: 100px;
+    background-color: #ffb725;
+    border: solid 1px #ffb725;
+    color: #FFFFFF;
+}
+.complete-button:hover{
+    background-color:#FFFFFF;
+    color: #ffb725;
+}
