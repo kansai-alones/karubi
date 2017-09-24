@@ -17,3 +17,8 @@ Route::post('auth/register', 'AuthController@register');
 
 Route::get('enquete', 'EnqueteController@getEnquete');
 Route::post('enquete', 'EnqueteController@answer');
+
+Route::group(['prefix' => 'result'], function () {
+    Route::get('/', 'ResultController@getScore');
+    Route::get('graph', 'ResultController@getGraph');
+});

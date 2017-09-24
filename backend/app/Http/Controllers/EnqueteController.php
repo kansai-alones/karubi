@@ -13,7 +13,7 @@ class EnqueteController extends Controller
     public function getEnquete(Request $request)
     {
         $count = 0;
-        $user = User::where('token', $request->token)->first();
+        $user = User::where('token', $request->input('token'))->first();
         $st = $request->input('sequence_token');
         if (!isset($st)
             || !Sequence::where('user_id', $user->id)
