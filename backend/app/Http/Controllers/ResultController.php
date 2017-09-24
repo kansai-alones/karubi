@@ -27,7 +27,8 @@ class ResultController extends Controller
 
     public function getGraph(Request $request)
     {
-        $user = User::where('token', $request->input('token'))->first();
+        // $user = User::where('token', $request->input('token'))->first();
+        $user = User::demo();
         $temp = DB::table('results')
             ->select('score', 'level')
             ->where('id', $request->input('result_id'))
@@ -59,7 +60,9 @@ class ResultController extends Controller
      */
     public function getList(Request $request)
     {
-        $user = User::where('token', $request->input('token'))->first();
+        // $user = User::where('token', $request->input('token'))->first();
+        $user = User::demo();
+
         $result = DB::table('results')
             ->select(DB::raw('level, count(*) as count'))
             ->join('users', 'results.user_id', 'users.id')

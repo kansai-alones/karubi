@@ -16,22 +16,27 @@ class QuestionController extends Controller
      */
     public function create(Request $request) : Result
     {
-        $user = User::where('token', $request->input('token'))->first();
+        $user = User::demo();
+        // $user = User::where('token', $request->input('token'))->first();
         $question = Question::find($request->input('question_id'));
         $data = $request->input();
         $data['user_id'] = $user->id;
         $data['level'] = $question->level;
 
-        // TODO コードテスト
-        $data['check_list'] = [
-            ['flag' => true],
-            ['flag' => false],
-            ['flag' => false],
-            ['flag' => true],
-            ['flag' => true],
-            ['flag' => false],
-            ['flag' => true],
-        ];
+        $ifile    = storage_path('code/ToDo.php');
+        $testfile = base_path('tests/Unit/ToDo.php');
+        $filename = base_path('result.json');
+        chmod($ifile, 777);
+        copy($ifile, $testfile);
+        exec('cd /var/www/app && ./vendor/bin/phpunit');
+        
+        $data['check_list'] = json_decode(file_get_contents($filename));
+
         return Result::calculate($data);;
+    }
+
+    public function get()
+    {
+        return Question::find(1);
     }
 }
