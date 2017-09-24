@@ -19,7 +19,7 @@ class TestSeeder extends Seeder
             'login_id'  => 'taniko',
             'password'  => 'password',
             'type_id'   => 1,
-            'years'     => 22,
+            'years'     => 3,
         ]);
         $user->token = 'a';
         $user->save();
