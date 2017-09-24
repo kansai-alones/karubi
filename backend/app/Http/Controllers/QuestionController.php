@@ -34,4 +34,18 @@ class QuestionController extends Controller
         ];
         return Result::calculate($data);;
     }
+
+    public function execute(Request $request)
+    {
+        // TODO コードのテスト
+        return [
+            ['flag' => true],
+            ['flag' => false],
+            ['flag' => false],
+            ['flag' => true],
+            ['flag' => true],
+            ['flag' => false],
+            ['flag' => true],
+        ];
+    }
 }
