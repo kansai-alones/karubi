@@ -1,0 +1,157 @@
+.title {
+    margin-top: 80px;
+    font-family: HiraKakuPro-W6;
+    font-size: 30px;
+    text-align: center;
+    color: #000000;
+    font-weight: bold;
+}
+
+.sub {
+    margin-top: 40px;
+    width: 480px;
+    height: 30px;
+    font-weight: bold;
+    font-family: HiraKakuPro-W6;
+    font-size: 30px;
+}
+
+.level {
+    margin-top: 40px;
+    width: 90px;
+    height: 30px;
+    font-family: HiraKakuPro-W6;
+    font-size: 30px;
+    text-align: center;
+    color: #ff9d42;
+}
+
+.level-num {
+    margin-top: -20px;
+    width: 143px;
+    height: 200px;
+    font-family: HiraKakuPro-W6;
+    font-size: 200px;
+    text-align: center;
+    color: #ff9d42;
+}
+
+.score {
+    margin-top: 89px;
+    width: 240px;
+    height: 30px;
+    font-family: HiraKakuPro-W6;
+    font-size: 30px;
+    text-align: center;
+    color: #000000;
+}
+
+.result-score {
+    margin-top: 30px;
+    font-weight: bold;
+    width: 285px;
+    height: 60px;
+    font-family: HiraKakuPro-W6;
+    font-size: 40px;
+    text-align: center;
+    color: #000000;
+}
+
+.same-levels {
+    font-weight: bold;
+    width: 750px;
+    height: 30px;
+    font-family: HiraKakuPro-W6;
+    font-size: 30px;
+    text-align: center;
+    color: #000000;
+}
+
+.graph {
+    height: 600px;
+    object-fit: contain;
+    background-color: #fffefc;
+    border: solid 1px #ffe0cf;
+}
+
+.graph-image {
+    width: 900px;
+    height: 584px;
+}
+
+.challenger {
+    font-size: 30px;
+    margin-top: 133px;
+}
+
+.challenge {
+    margin-top: 60px;
+
+}
+
+.challenge-button {
+    width: 200px;
+    height: 70px;
+    border-radius: 100px;
+    background-color: #3eaaef;
+
+}
+
+.level-challenger {
+    font-weight: bold;
+}
+
+.challenge-level {
+    font-size: 30px;
+}
+
+.people-num {
+    width: 146px;
+    font-family: HiraKakuPro-W6;
+    font-size: 60px;
+    text-align: center;
+}
+
+
+.push-file{
+    margin-top: 45px;
+    margin-bottom: 60px;
+}
+.push-file-button{
+    width: 300px;
+    height: 70px;
+    font-size: 16px;
+    border-radius: 100px;
+    border: solid 1px #3eaaef;
+    background-color: #FFFFFF;
+    color: #3eaaef;
+
+}
+.push-file-button:hover{
+    background-color: #3eaaef;
+    color: #FFFFFF;
+}
+.test{
+    margin-top: 45px;
+    margin-bottom: 60px;
+}
+.test-button{
+    width: 300px;
+    height: 70px;
+    font-size: 16px;
+    border-radius: 100px;
+    background-color: #FFFFFF;
+    border: solid 1px #3eaaef;
+    color: #3eaaef;
+}
+.test-button:hover{
+    background-color: #3eaaef;
+    color: #FFFFFF;
+}
+
+.add1{
+    margin-top: 40px;
+}
+.add{
+    padding-top: 50px;
+}
