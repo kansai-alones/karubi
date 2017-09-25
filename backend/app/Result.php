@@ -26,7 +26,7 @@ class Result extends Model
         $size  = Question::find($data['question_id'])->checks->count();
         $count = 0;
         foreach ($data['check_list'] as $check) {
-            if ($check['flag']) {
+            if ($check) {
                 $count = $count + 1;
             }
         }

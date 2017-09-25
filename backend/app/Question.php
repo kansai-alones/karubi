@@ -18,6 +18,5 @@ class Question extends Model
     public function results()
     {
         return $this->hasMany('App\Result');
-
     }
 }
