@@ -14,20 +14,24 @@
 <body>
 <div class="container">
     <div class="row">
-        <div >
-            <h1 class="title">Q1.〇〇〇を実装できますか？</h1>
-        </div>
-        <div class="form-group btn1">
-            <input type="submit" value="実装できる" class="btn btn-primary botton1 center-block">
-        </div>
+        <form id="the-form" action="http://localhost/api/enquete" method="post">
+            <div>
+                <h1 class="title" id="title"></h1>
+                <input id="ans" name="choice_id" type="hidden" value="">
+                <input id="seq" name="sequence_token" type="hidden" value="">
+            </div>
+            <div class="form-group btn1">
+                <input type="submit" value="1" class="btn btn-primary botton1 center-block">
+            </div>
 
-        <div class="form-group btn2">
-            <input type="submit" value="調べれば実装できる" class="btn btn-primary botton2 center-block">
-        </div>
+            <div class="form-group btn2">
+                <input type="submit" value="2" class="btn btn-primary botton2 center-block">
+            </div>
 
-        <div class="form-group btn3">
-            <input type="submit" value="実装できない" class="btn btn-primary botton3 center-block">
-        </div>
+            <div class="form-group btn3">
+                <input type="submit" value="3" class="btn btn-primary botton3 center-block">
+            </div>
+        </form>
     </div>
 </div>
 
@@ -35,7 +39,31 @@
 </body>
 
 <script type="application/javascript">
-    $('#the-form').submit(function(event) {
+    $(function () {
+        $.ajax({
+            url: 'http://localhost/api/enquete',
+            type: 'get',
+            data: null,
+            timeout: 10000,  // 単位はミリ秒
+
+            // 通信成功時の処理
+            success: function (result, textStatus, xhr) {
+                // 入力値を初期化
+                console.log(result);
+                $('#title').text('Q'+(result['count']+1)+'       '+result['enquete']['title']);
+                $('#ans').val(result['enquete']['choices'][0]['id']);
+                $('#seq').val(result['sequence_token']);
+                console.log(result['sequence_token']);
+            },
+
+            // 通信失敗時の処理
+            error: function (xhr, textStatus, error) {
+                alert('NG...');
+            }
+        });
+    });
+
+    $('#the-form').submit(function (event) {
         // HTMLでの送信をキャンセル
         event.preventDefault();
 
@@ -53,28 +81,31 @@
             timeout: 10000,  // 単位はミリ秒
 
             // 送信前
-            beforeSend: function(xhr, settings) {
+            beforeSend: function (xhr, settings) {
                 // ボタンを無効化し、二重送信を防止
                 $button.attr('disabled', true);
             },
             // 応答後
-            complete: function(xhr, textStatus) {
+            complete: function (xhr, textStatus) {
                 // ボタンを有効化し、再送信を許可
                 $button.attr('disabled', false);
             },
 
             // 通信成功時の処理
-            success: function(result, textStatus, xhr) {
+            success: function (result, textStatus, xhr) {
                 // 入力値を初期化
                 $form[0].reset();
                 console.log(result);
                 document.cookie = 'token=' + result['token'];
-                alert('OK');
-                location.href='enquete.html';
+//                alert('OK');
+                if (result['count'] == 4){
+                    location.href = 'level.html';
+                }
+                location.href = 'level.html';
             },
 
             // 通信失敗時の処理
-            error: function(xhr, textStatus, error) {
+            error: function (xhr, textStatus, error) {
                 alert('NG...');
             }
         });
